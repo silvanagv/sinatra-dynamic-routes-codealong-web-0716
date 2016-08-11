@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require 'pry'
 
 class App < Sinatra::Base
 
@@ -8,9 +9,16 @@ class App < Sinatra::Base
   end
 
   # This is a sample dynamic route.
-  get "/hello/:name" do
-    @user_name = params[:name]
-    "Hello #{@user_name}!"
+  get "/goodbye/:name" do
+    @user_name = "danny"
+    "Goodbye #{@user_name}"
+  end
+
+  # This is a sample dynamic route.
+  get "/multiply/:num1/:num2" do
+    @num1 = params[:num1].to_i
+    @num2 = params[:num2].to_i
+    "#{@num1*@num2}"
   end
 
 
